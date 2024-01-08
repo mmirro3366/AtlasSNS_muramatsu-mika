@@ -25,5 +25,10 @@
 
 {!! Form::close() !!}
 
+<!--@if ($errors->any())
+    @foreach ($errors as $error)
+        <p class="validation">{{$error}}</p>
+    @endforeach
+@endif-->
 
 @endsection

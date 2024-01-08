@@ -66,6 +66,7 @@ class RegisterController extends Controller
              'password_confirmation.max' => '確認用パスワードは20文字以下で入力してください。',
                 ],
             );
+
             $data = $request->input();
             $this->create($data);
             return redirect("/added");
