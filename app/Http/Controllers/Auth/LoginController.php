@@ -40,7 +40,8 @@ class LoginController extends Controller
     }
 
     public function login(Request $request){
-        if($request->isMethod('post')){
+        //if($request->isMethod('post')){
+            dd($request);
 
             $data=$request->only('mail','password');
             // ログインが成功したら、トップページへ
@@ -48,7 +49,7 @@ class LoginController extends Controller
             if(Auth::attempt($data)){
                 return redirect('/top');
             }
-        }
+        //}
         return view("auth.login");
     }
 }

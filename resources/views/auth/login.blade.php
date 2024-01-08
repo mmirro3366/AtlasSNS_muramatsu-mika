@@ -3,7 +3,7 @@
 @section('content')
 <!-- 適切なURLを入力してください -->
 <!-- ↓/topから/loginに変更 -->
-{!! Form::open(['url' => '/login']) !!}
+{!! Form::open(['url' => '/test']) !!}
 
 <p>AtlasSNSへようこそ</p>
 
