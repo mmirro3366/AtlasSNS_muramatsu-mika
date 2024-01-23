@@ -43,9 +43,9 @@ class RegisterController extends Controller
         if($request->isMethod('post')){
             $request->validate([
             'username' => 'required|min:2|max:12',
-            'mail' => 'required|min:5|max:40|unique:atlas_sns|email',
-            'password' => 'required|alpha_num|min:8|max:20',
-            'password_confirmation' => 'required|alpha_num|min:8|max:20|password_confirmed',
+            'mail' => 'required|min:5|max:40|unique:users|email',
+            'password' => 'required|alpha_num|min:8|max:20|confirmed',
+            'password_confirmation' => 'required|alpha_num|min:8|max:20'
             ],
              ['username.required' => 'ユーザーネームは必須項目です。',
              'username.min' => 'パスワードは2文字以上で入力してください。',
@@ -67,10 +67,10 @@ class RegisterController extends Controller
                 ],
             );
 
-            $data = $request->input();
-            $this->create($data);
-            return redirect("/added");
-
+            // $data = $request->input();
+            // $this->create($data);
+            //return redirect("/added");
+            //dd($request);
             $username = $request->input('username');
             $mail = $request->input('mail');
             $password = $request->input('password');
@@ -81,16 +81,19 @@ class RegisterController extends Controller
                 'password' => bcrypt($password),
             ]);
 
+            //session機能利用して、ユーザー名表示
+            $request->session()->put('username',$username);
+
             return redirect('added');
         }
         return view('auth.register');
     }
 
-    //public function added(){
-        //return view('auth.added');
-    //}
-     public function added(Request $request){
-        $username = $request->input('username');
-        return view('auth.added', ['username'=>$username]);
+    public function added(){
+        return view('auth.added');
     }
+    //  public function added(Request $request){
+    //     $username = $request->input('username');
+    //     return view('auth.added', ['username'=>$username]);
+    //}
 }

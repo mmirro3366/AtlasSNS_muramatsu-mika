@@ -1,22 +1,102 @@
 @charset "utf-8";
-html{
-}
-body{
-}
+
+html {}
+
+body {}
+
 /* header */
-header{
-    background:#186AC9;
+header {
+    background: #186AC9;
+}
+
+#user {
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
+#username {
+    display: flex;
+    float: right;
+}
+
+/* アコーディオンメニュー */
+.accordion-container {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    float: right;
+}
+
+.accordion-content {
+    display: none;
+    font-size: 15px;
+    z-index: 1;
+    position: absolute;
+    background: #fff;
+    color: #727272;
+}
+
+.menu-btn {
+    display: flex;
+    font-size: 1.25rem;
+    padding: 10px;
+    padding-left: 10px;
+    width: 100px;
+    background-color: transparent;
+    color: #fff;
+    position: relative;
+}
+
+.menu-btn::after {
+    position: absolute;
+    display: block;
+    width: 4px;
+    height: 8px;
+    right: 20px;
+    top: 3%;
+    transform: rotate(-90deg);
+    transform: translateY();
+}
+
+.menu-btn.open::after {
+    display: flex;
+    transform: rotate(90deg);
+}
+
+.menu-btn ul li {
+    padding: 20px;
+    border: 3px solid;
+    white-space: nowrap;
+    text-align: center;
 }
 
 /* main content */
-#row{
+#row {
     display: flex;
     flex-flow: row wrap;
 }
-#container{
+
+#container {
     flex: 0 0 80%;
 }
-#side-bar{
+
+#side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+}
+
+/* 投稿フォーム */
+.form-group input {
+    width: 80%;
+}
+
+.form-group img {
+    width: 20px;
+    height: 20px;
+}
+
+.btn img {
+    width: 20%;
+    height: 20%;
 }
