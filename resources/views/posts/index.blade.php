@@ -11,6 +11,11 @@
   </div>
   <button type="submit" class="btn btn-success pull-right"><img src="images/post.png" all="送信"></button>
   {!! Form::close()!!}
+  @if ($errors->any())
+    @foreach ($errors->all() as $error)
+        <p class="validation">{{$error}}</p>
+    @endforeach
+@endif
 </div>
 <div>
   @foreach($list as $list)

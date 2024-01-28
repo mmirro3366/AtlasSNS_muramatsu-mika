@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facedes\Auth;
+//use Illuminate\Support\Facedes\Auth;
+use Auth;
 use App\User;
 use App\Post;
 
@@ -19,17 +20,30 @@ class PostsController extends Controller
 
     //投稿の登録処理
     public function postCreate(Request $request){
+        if($request->isMethod('post')){
+            $request->validate([
+                'newPost' => 'required|min:1|max:12',
+            ],
+            ['newPost.required' => '投稿内容は必須項目です。',
+             'newPost.min' => '投稿内容は1文字以上で入力してください。',
+             'newPost.max' => '投稿内容は150文字以内で入力してください。',
+        ],);
+
         //投稿フォームに書かれた投稿を受け取る
         $post=$request->input('newPost');
         $user_id=Auth::user()->id;
+        //dd($user_id);
         //投稿の登録
         //Postテーブルの'user_id','post'に変数を当てはめる
+        //↓postはpostphpにも行く
         Post::create([
             'user_id'=>$user_id,
             'post'=>$post
         ]);
         return redirect('/top');
     }
+    return view('posts.index');
+}
     public function postUpdate(Request $request)
     {
         $id=$request->input('id');

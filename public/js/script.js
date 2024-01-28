@@ -11,3 +11,11 @@ $(function () {
     $(this).toggleClass("open", 300);
   }).next().hide();
 });
+
+//モーダルを開く処理
+$(function () {
+  $(".js-modal-open").click(function () {
+    console.log(js - modal);
+    $(js - modal).fadeIn();
+  });
+});
