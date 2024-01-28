@@ -28,14 +28,13 @@ class PostsController extends Controller
             'user_id'=>$user_id,
             'post'=>$post
         ]);
-        return back();
+        return redirect('/top');
     }
     public function postUpdate(Request $request)
     {
         $id=$request->input('id');
         $up_post=$request->input('upPost');
-        Post::where('id',$id)->update
-        (['post'=>$up_post]);
+        Post::where('id',$id)->update(['post'=>$up_post]);
 
         return redirect('/top');
     }

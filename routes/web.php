@@ -31,7 +31,7 @@ Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
 Route::get('/top','PostsController@index')->middleware('auth');
-Route::post('/top','PostsController@index')->middleware('auth');
+Route::post('/createpost','PostsController@postCreate')->middleware('auth');
 
 Route::get('/profile','UsersController@profile')->middleware('auth');
 
