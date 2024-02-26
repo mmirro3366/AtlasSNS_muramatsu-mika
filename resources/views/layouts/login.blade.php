@@ -18,6 +18,10 @@
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
+
+    <!--Jquery-->
+    <script src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="{{asset('/js/script.js')}}"></script>
 </head>
 <body>
     <header>
@@ -47,21 +51,20 @@
                 <p>{{Auth::user()->username}}さんの</p>
                 <div>
                 <p>フォロー数</p>
-                <p>〇〇名</p>
+                <p>{{ Auth::user()->follows()->get()->count() }}名</p>
                 </div>
-                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
+                <p class="btn"><a href="/followList">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
-                <p>〇〇名</p>
+                <p>{{ Auth::user()->followUsers()->get()->count() }}名</p>
                 </div>
-                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
+                <p class="btn"><a href="/followerList">フォロワーリスト</a></p>
             </div>
             <p class="btn"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>
     </footer>
-    <script src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="{{asset('/js/script.js')}}"></script>
+
 </body>
 </html>

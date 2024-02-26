@@ -9,6 +9,10 @@ header {
     background: #186AC9;
 }
 
+#head img {
+    width: 10%;
+}
+
 #user {
     display: flex;
     position: relative;
@@ -87,6 +91,7 @@ header {
 }
 
 /* 投稿フォーム */
+
 .form-group input {
     width: 80%;
 }
@@ -96,7 +101,46 @@ header {
     height: 20px;
 }
 
+.btn-success {
+    background-color: white;
+    border: none;
+    margin-left: 80%;
+}
+
 .btn img {
-    width: 20%;
-    height: 20%;
+    width: 30px;
+    height: 30px;
+}
+
+/* 投稿更新・削除 */
+.table.table-hover img {
+    width: 30px;
+    height: 30px;
+}
+
+.table-hover_btn img {
+    position: relative;
+    -webkit-transform: translate(-50%-50%);
+    transform: translate(-50%, -50%);
+    display: block;
+    border-radius: 5px;
+}
+
+.btn-danger:hover img:nth-of-type(1) {
+    opacity: 0;
+}
+
+.btn-danger img:nth-of-type(2) {
+    opacity: 0;
+    position: relative;
+}
+
+.btn-danger:hover img:nth-of-type(2) {
+    opacity: 1;
+
+}
+
+/* モーダル */
+.modal__contents {
+    display: none;
 }

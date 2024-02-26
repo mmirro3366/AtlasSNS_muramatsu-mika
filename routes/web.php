@@ -32,13 +32,27 @@ Route::post('/added', 'Auth\RegisterController@added');
 //ログイン中のページ
 Route::get('/top','PostsController@index')->middleware('auth');
 Route::post('/createpost','PostsController@postCreate')->middleware('auth');
+Route::post('/post/update','PostsController@postUpdate')->middleware('auth');
+Route::get('/post/{id}/delete','PostsController@delete')->middleware('auth');
 
 Route::get('/profile','UsersController@profile')->middleware('auth');
 
+//↓検索ページ
 Route::get('/search','UsersController@search')->middleware('auth');
+Route::post('/search','UsersController@search')->middleware('auth');
+//Route::post('/searching','UsersController@searching')->middleware('auth');
 
-Route::get('/follow-list','PostsController@index')->middleware('auth');
-Route::get('/follower-list','PostsController@index')->middleware('auth');
+//フォローするしない
+Route::post('/users/{user}/follow','FollowsController@follow')->name('follow')->middleware('auth');
+Route::delete('/users/{user}/unfollow','FollowsController@unfollow')->name('unfollow')->middleware('auth');
+
+//フォローリスト、フォロワーリスト
+Route::get('/followList','FollowsController@followList')->middleware('auth');
+Route::get('/followerList','FollowsController@followerList')->middleware('auth');
+
+//プロフィール
+Route::get('/profile','UsersController@profile');//プロフィール画面を表示させる
+Route::post('/profileupdate','UsersController@profileupdate');//プロフィール更新押したあとの処理
 
 //ログアウトを行う
-Route::get('/logout','Auth\LoginController@logout');
+Route::get('/logout','Auth\LoginController@logout')->middleware('auth');
