@@ -8,6 +8,9 @@
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
+    <!--bootstrap-->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }} ">
+
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -26,10 +29,10 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="images/atlas.png"></a></h1>
+        <h1><a href="/top"><img src="{{ asset('images/atlas.png') }} "></a></h1>
             <div id="user">
                 <div id="username">
-                    <p>{{Auth::user()->username}}さん<img src="images/icon1.png"></p>
+                    <p>{{Auth::user()->username}}さん<img src="/storage/{{ Auth::user()->images }}"></p>
                 <div>
                 <div class="accordion-container">
                     <p class="menu-btn">▼</p>
@@ -48,23 +51,23 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>{{Auth::user()->username}}さんの</p>
-                <div>
-                <p>フォロー数</p>
-                <p>{{ Auth::user()->follows()->get()->count() }}名</p>
+                <p class="name">{{Auth::user()->username}}さんの</p>
+                <div class="contents">
+                <p class="item">フォロー数</p>
+                <p class="item">{{ Auth::user()->follows()->get()->count() }}名</p>
                 </div>
-                <p class="btn"><a href="/followList">フォローリスト</a></p>
-                <div>
-                <p>フォロワー数</p>
-                <p>{{ Auth::user()->followUsers()->get()->count() }}名</p>
+                <p class="btn-list"><a class="btn btn-primary" href="/followList" role="button">フォローリスト</a></p>
+                <div class="contents">
+                <p class="item">フォロワー数</p>
+                <p class="item">{{ Auth::user()->followUsers()->get()->count() }}名</p>
                 </div>
-                <p class="btn"><a href="/followerList">フォロワーリスト</a></p>
+                <p class="btn-list"><a class="btn btn-primary" href="/followerList"  role="button">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="/search">ユーザー検索</a></p>
+            <p class="btn-search"><a class="btn btn-primary" href="/search" role="button">ユーザー検索</a></p>
         </div>
     </div>
     <footer>
     </footer>
-
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

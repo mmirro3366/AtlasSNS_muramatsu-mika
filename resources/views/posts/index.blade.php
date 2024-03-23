@@ -6,10 +6,10 @@
   <!--/topに値を送る-->
   {!! Form::open(['url'=>'/createpost'])!!}
   {{Form::token()}}
-  <div class="form-group"><img src="images/icon1.png">
+  <div class="form-group"><img src="/storage/{{ Auth::user()->images }}">
     {{Form::input('text','newPost',null,['class'=>'form-control','placeholder'=>'投稿内容を入力してください'])}}
   </div>
-  <button type="submit" class="btn btn-success pull-right"><img src="images/post.png" all="送信"></button>
+  <button type="submit" class="btn-send pull-right"><img src="images/post.png" all="送信"></button>
   {!! Form::close()!!}
   @if ($errors->any())
     @foreach ($errors->all() as $error)
@@ -17,25 +17,37 @@
     @endforeach
   @endif
 </div>
-<div>
+<div class="post-parents">
   @foreach($list as $list)
-  <table class="table table-hover">
-    <tr>
-    <td>{{$list->id}}</td>
-    <td>{{$list->post}}</td>
-    <td>{{$list->created_at}}</td>
-    <!--投稿更新-->
-    <td><div class="contents">
-      <a class="js-modal-open" href="/post/{{$list->id}}/update" post="{{ $list->post}}" post_id="{{$list->id}}"><img class="Update" src="./images/edit.png" alt="編集"></a>
-    </div></td>
-    <!--投稿削除-->
-    <td><a class="btn btn-danger" href="/post/{{$list->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいですか？')">
-    <img src="./images/trash.png" alt="消去前">
-    <img src="./images/trash-h.png" alt="消去後">
-    </img></a></td>
-    </tr>
+  <ul>
+    <li class="post-block">
+      <div class="post-contents">
+        <a href="/users/{{ $list->user->id }}/userProfile"><img src="{{ asset('images/'.$list->user->images) }} "></a>
+    <!--<td>{{$list->id}}</td>-->
+        <div class="post-profile">
+          <div class="post-name">{{$list->user->username}}</div>
+          <div>{{$list->created_at}}</div>
+        </div>
+        <div class="post-post">
+          <div>{{$list->post}}</div>
+        </div>
+      </div>
+    </li>
+    <li class="post-block2">
+      <!--投稿更新-->
+      <div class="post-update">
+        <a class="js-modal-open" href="/post/{{$list->id}}/update" post="{{ $list->post}}" post_id="{{$list->id}}"><img class="Update" src="./images/edit.png" alt="編集" width="40"></img></a>
+      </div>
+      <!--投稿削除-->
+      <div>
+      <a class="post-delete" href="/post/{{$list->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいですか？')">
+      <img src="./images/trash.png" alt="消去前" width="40">
+      </img>
+      <img src="./images/trash-h.png" alt="消去後" width="40"></img></a>
+      </div>
      @endforeach
-  </table>
+    </li>
+  </ul>
 </div>
 
 <!--モーダルの中身-->

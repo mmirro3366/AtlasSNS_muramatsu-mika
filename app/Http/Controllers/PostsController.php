@@ -39,7 +39,7 @@ class PostsController extends Controller
         Post::create([
             'user_id'=>$user_id,
             'post'=>$post,
-            'created_at'=>$created_at,
+            //'created_at'=>$created_at,
         ]);
         return redirect('/top');
     }

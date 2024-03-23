@@ -14,17 +14,18 @@ class FollowsController extends Controller
 {
     //
     public function followList(){
+        $follows = Auth::User()->follows()->get();
         $following_id = Auth::user()->follows()->pluck('followed_id');
         $users = \DB::table('users')->whereIn('id', $following_id)->get();
         $post = Post::with('user')->whereIn('user_id', $following_id)->get();
         //dd($users);
 
-        return view('follows.followList', compact('users','post'));
+        return view('follows.followList', compact('users','post','follows'));
 
     }
     public function followerList(){
         //ログインユーザーがフォローしてる人を表示
-        $follows = Auth::User()->follows()->get();
+        $follows = Auth::User()->followUsers()->get();
         $followed_id = Auth::user()->followUsers()->pluck('following_id');
         $users = \DB::table('users')->whereIn('id', $followed_id)->get();
         $post = Post::with('user')->whereIn('user_id', $followed_id)->get();

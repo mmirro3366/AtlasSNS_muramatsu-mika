@@ -10,26 +10,28 @@ header {
 }
 
 #head img {
-    width: 10%;
+    width: 15%;
 }
 
 #user {
     display: flex;
     position: relative;
-    width: 100%;
+
 }
 
 #username {
     display: flex;
-    float: right;
+    float: left;
+    margin-left: auto;
 }
 
 /* アコーディオンメニュー */
 .accordion-container {
-    position: relative;
+    position: flex;
     width: 100%;
     cursor: pointer;
-    float: right;
+    float: left;
+    margin-left: auto;
 }
 
 .accordion-content {
@@ -39,6 +41,7 @@ header {
     position: absolute;
     background: #fff;
     color: #727272;
+    white-space: nowrap;
 }
 
 .menu-btn {
@@ -75,6 +78,46 @@ header {
     text-align: center;
 }
 
+/* side bar */
+#row {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#confirm {
+    border-bottom: 1px solid #C0C0C0;
+}
+
+#side-bar {
+    flex: 0 0 19%;
+    border-left: 1px solid #727272;
+}
+
+.name {
+    padding: 10px 20px;
+}
+
+.contents {
+    overflow: hidden;
+}
+
+.item {
+    float: left;
+    padding: 20px 30px;
+    text-align: center;
+}
+
+.btn-list {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.btn-search {
+    margin-top: 30px;
+    text-align: center
+}
+
 /* main content */
 #row {
     display: flex;
@@ -85,62 +128,133 @@ header {
     flex: 0 0 80%;
 }
 
+.content {
+    padding: 40px;
+    margin-left: auto;
+}
+
 #side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
 }
 
+.user-icon {
+    width: 64px;
+    height: 64px;
+}
+
 /* 投稿フォーム */
+.form-container {
+    border-bottom: 1px solid #C0C0C0;
+}
+
+.form-group {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
 
 .form-group input {
-    width: 80%;
+    border: none;
 }
 
 .form-group img {
-    width: 20px;
-    height: 20px;
-}
-
-.btn-success {
-    background-color: white;
-    border: none;
-    margin-left: 80%;
-}
-
-.btn img {
     width: 30px;
     height: 30px;
+    margin-bottom: 5px;
+}
+
+
+.btn-send {
+    border: none;
+    margin-left: 90%;
+}
+
+.btn-send img {
+    width: 30px;
+    height: 30px;
+}
+
+.post-contents {
+    width: 100%;
+    padding: 15px;
+}
+
+.post-profile {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-name {
+    margin-bottom: 10px;
+}
+
+.post-post {
+    margin-right: 150px;
+}
+
+.post-parents {
+    border-bottom: 1px solid #C0C0C0;
 }
 
 /* 投稿更新・削除 */
-.table.table-hover img {
-    width: 30px;
-    height: 30px;
-}
 
-.table-hover_btn img {
-    position: relative;
+.post-delete img {
     -webkit-transform: translate(-50%-50%);
     transform: translate(-50%, -50%);
-    display: block;
+    display: absolute;
     border-radius: 5px;
+    text-align: right;
 }
 
-.btn-danger:hover img:nth-of-type(1) {
+.post-delete:hover img:nth-of-type(1) {
     opacity: 0;
 }
 
-.btn-danger img:nth-of-type(2) {
+.post-delete img:nth-of-type(2) {
     opacity: 0;
     position: relative;
 }
 
-.btn-danger:hover img:nth-of-type(2) {
+.post-delete:hover img:nth-of-type(2) {
     opacity: 1;
 
 }
 
 /* モーダル */
-.modal__contents {
+.modal {
     display: none;
+    height: 200vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.modal__bg {
+    background: rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+
+.modal__content {
+    background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+}
+
+
+/* フォローリスト・フォロワーリスト */
+.clm_top {
+    display: block;
+}
+
+
+.follow_icon {
+    float: left;
 }
