@@ -8,11 +8,11 @@
   <div class="userprofile-contents">
       <div class="userprofile-icon"><img src="{{asset('images/' . $userprofile->images )}}"></div>
       <div class=user-name>
-      <div class="userprofile-name">name</div>
+      <div class="userprofile-name">ユーザー名</div>
       <div class="userprofile-username">{{$userprofile->username}}</div>
       </div>
       <div class=user-bio>
-      <div class="userprofile-bio">bio</div>
+      <div class="userprofile-bio">自己紹介</div>
       <div class="userprofile-comment">{{$userprofile->bio}}</div>
       </div>
   </div>
@@ -41,15 +41,18 @@
     @if($user->images == 'Atlas.png')
         <img src="{{asset('images/' . $userprofile->images )}}" alt="ユーザーアイコン" width="50" height="50">
     @else
-        <img src="{{asset('images/' . $userprofile->images )}}" alt="ユーザーアイコン" width="50" height="50">
+        <img src="{{asset('images/' . $userprofile->images )}}" alt="ユーザーアイコン" width="40">
     @endif
     </div>
     <div class="post_content">
-        <div class="post_top">
-            <p class="post_username">{{ $userprofile->username }}</p><br>
-            <p class="post_updated_at">{{ $post->updated_at }}</p><br>
+        <div class="post-profile">
+            <div class="post_username">{{$userprofile->username }}</div>
+            <div>{{ $post->updated_at }}</div>
         </div>
-        <p class="post_post">{{ $post->post }}</p><br>
+        <br>
+        <div class="post_post">
+            <div>{{ $post->post }}</div>
+        </div>
     </div>
 </div>
 @endforeach

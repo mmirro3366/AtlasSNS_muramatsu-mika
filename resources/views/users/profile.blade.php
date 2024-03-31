@@ -39,9 +39,11 @@
     </div>
   </div>
 </div>-->
-<form action="{{ url('profileupdate') }}" enctype="multipart/form-data" method="post">{{--profileupdateのpostに飛ぶ--}}
-  @csrf
-  @if ($errors->any())
+<div class="userprofile-container">
+  <dl class="userprofile-icon2"><img src="/storage/{{ Auth::user()->images }}" width="40"></dl>
+  <form action="{{ url('profileupdate') }}" enctype="multipart/form-data" method="post" class="profileform">{{--profileupdateのpostに飛ぶ--}}
+    @csrf
+    @if ($errors->any())
       <div class="alert alert-danger">
           <ul>
               @foreach ($errors->all() as $error)
@@ -49,22 +51,25 @@
               @endforeach
           </ul>
       </div>
-   @endif
-  <dl class="UserProfile">
-    <dt>username</dt>
-    <dd><input type="text" name="username" value="{{ Auth::user()->username }}"></dd>
-    <dt>mail address</dt>
-    <dd><input type="text" name="mail" value="{{ Auth::user()->mail }}"></dd>
-    <dt>password</dt>
-    <dd><input type="password" name="password"></dd>
-    <dt>password confirm</dt>
-    <dd><input type="password" name="password_confirmation"></dd>
-    <dt>bio</dt>
-    <dd><input type="text" name="bio" value="{{ Auth::user()->bio }}"></dd>
-    <dt>icon image</dt>
-    <dd><input type="file" name="images"></dd>
-  </dl>
-  <input type="submit" name="profileupdate" value="更新" >
-</form>
+    @endif
+
+    <dl class="UserProfile">
+      <br>
+      <dt>username</dt>
+      <dd><input type="text" name="username" value="{{ Auth::user()->username }}"></dd>
+      <dt>mail address</dt>
+      <dd><input type="text" name="mail" value="{{ Auth::user()->mail }}"></dd>
+      <dt>password</dt>
+      <dd><input type="password" name="password"></dd>
+      <dt>password confirm</dt>
+      <dd><input type="password" name="password_confirmation"></dd>
+      <dt>bio</dt>
+      <dd><input type="text" name="bio" value="{{ Auth::user()->bio }}"></dd>
+      <dt>icon image</dt>
+      <dd><input type="file" name="images"></dd>
+    </dl>
+    <input type="submit" name="profileupdate" class="btn btn-danger" value="更新" >
+  </form>
+</div>
 
 @endsection

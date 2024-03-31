@@ -29,7 +29,7 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="{{ asset('images/atlas.png') }} "></a></h1>
+        <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}"></a></h1>
             <div id="user">
                 <div id="username">
                     <p>{{Auth::user()->username}}さん<img src="/storage/{{ Auth::user()->images }}"></p>
@@ -37,9 +37,9 @@
                 <div class="accordion-container">
                     <p class="menu-btn">▼</p>
                     <ul class="accordion-content">
-                        <li><a href="/top">HOME</a></li>
-                        <li><a href="/profile">プロフィール編集</a></li>
-                        <li><a href="/logout">ログアウト</a></li>
+                        <li><a href="/top" style="text-decoration:none;">HOME</a></li>
+                        <li><a href="/profile" style="text-decoration:none;">プロフィール編集</a></li>
+                        <li><a href="/logout" style="text-decoration:none;">ログアウト</a></li>
                     </ul>
                 </div>
             </div>

@@ -2,11 +2,11 @@
 
 @section('content')
 
-<div>
+<div class="search-top">
   <form action="/search" method="POST">
     @csrf
     <input type="text" name="keyword" placeholder="ユーザー名">
-    <input type="image" name="submit" src="images/search.png" width="20" height="20" alt="検索">
+    <input type="image" name="submit" src="images/search.png" width="30" height="30" alt="検索">
   </form>
 </div>
 
@@ -21,6 +21,7 @@
   <table class='table table-hover'>
   @foreach($users as $user)
   <ul>
+  <img src="{{asset('storage/'.$user->images)}}" width="40">
   <li>{{$user -> username}}</li>
   @if (auth()->user()->isFollowing($user->id))
     <form action="{{ route('unfollow', [$user->id]) }}" method="POST">
