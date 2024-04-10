@@ -31,16 +31,16 @@
       <div class="post-post">
         <div>{{$list->post}}</div>
       </div>
-      <!--投稿更新-->
-      @if( Auth::id() == ($list->user_id))
-      <div class="post-update">
-        <div class="js-modal-open" href="/post/{{$list->id}}/update" post="{{$list->post}}" post_id="{{$list->id}}"><img class="Update" src="./images/edit.png" alt="編集" width="40"></img></div>
-      </div>
       <!--投稿削除-->
+      @if( Auth::id() == ($list->user_id))
       <div class="post-delete">
         <a href="/post/{{$list->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいですか？')">
           <img src="./images/trash.png" alt="消去前" width="40"></img><img src="./images/trash-h.png" alt="消去後" width="40"></img>
         </a>
+      </div>
+      <!--投稿更新-->
+      <div class="post-update">
+        <div class="js-modal-open" href="/post/{{$list->id}}/update" post="{{$list->post}}" post_id="{{$list->id}}"><img class="Update" src="./images/edit.png" alt="編集" width="40"></img></div>
       </div>
       @endif
     </li>

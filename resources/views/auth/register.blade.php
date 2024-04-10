@@ -3,32 +3,52 @@
 @section('content')
 <!-- 適切なURLを入力してください -->
 <!-- ↓/addedから/registerに変更 -->
-{!! Form::open(['url' => '/register']) !!}
 
-<h2>新規ユーザー登録</h2>
 
-{{ Form::label('ユーザー名') }}
-{{ Form::text('username',null,['class' => 'input']) }}
+<div class="register-content">
+    {!! Form::open(['url' => '/register']) !!}
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 
-{{ Form::label('メールアドレス') }}
-{{ Form::text('mail',null,['class' => 'input']) }}
+    <div class="register-inner">
+        <h2>新規ユーザー登録</h2>
+        <div class="register-name">
+        {{ Form::label('user name') }}
+        {{ Form::text('username',null,['class' => 'input']) }}
+        </div>
+        <div class="register-mail">
+        {{ Form::label('mail adress') }}
+        {{ Form::text('mail',null,['class' => 'input']) }}
+        </div>
+        <div class="register-pass">
+        {{ Form::label('password') }}
+        {{ Form::password('password',null,['class' => 'input']) }}
+        </div>
+        <div class="register-comfirm">
+        {{ Form::label('password comfirm') }}
+        {{ Form::password('password_confirmation',null,['class' => 'input']) }}
+        </div>
+        <div class="register-btn">
+        {{ Form::submit('REGISTER',['class' => 'btn']) }}
+        </div>
+        <div class="return-login">
+        <p><a href="/login">ログイン画面へ戻る</a></p>
+        </div>
+    </div>
+    {!! Form::close() !!}
+</div>
 
-{{ Form::label('パスワード') }}
-{{ Form::text('password',null,['class' => 'input']) }}
-
-{{ Form::label('パスワード確認') }}
-{{ Form::text('password_confirmation',null,['class' => 'input']) }}
-
-{{ Form::submit('登録') }}
-
-<p><a href="/login">ログイン画面へ戻る</a></p>
-
-{!! Form::close() !!}
-
-@if ($errors->any())
+<!-- @if ($errors->any())
     @foreach ($errors->all() as $error)
         <p class="validation">{{$error}}</p>
     @endforeach
-@endif
+@endif -->
 
 @endsection

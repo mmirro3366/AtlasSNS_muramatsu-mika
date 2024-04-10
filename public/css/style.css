@@ -185,11 +185,14 @@ header {
 .btn-send {
     border: none;
     margin-left: 90%;
+    margin-bottom: 10px;
+    padding: 0;
 }
 
 .btn-send img {
     width: 30px;
     height: 30px;
+    border-radius: 5px;
 }
 
 .post-block {
@@ -308,7 +311,6 @@ header {
     height: 200PX
 }
 
-
 /* ユーザー検索 */
 .search-top {
     display: flex;
@@ -355,7 +357,6 @@ header {
     padding-left: 10%;
 }
 
-
 .post img {
     padding-left: 20%;
     width: 40px;
@@ -365,7 +366,6 @@ header {
 .userprofile-contents {
     width: 100%;
 }
-
 
 .user-name,
 .user-bio {
@@ -405,7 +405,6 @@ header {
     width: fit-content;
     margin-left: 20px;
 }
-
 
 dl dt {
     float: left;
