@@ -29,8 +29,8 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}"></a></h1>
-            <div id="user">
+          <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}"></a></h1>
+            <div class="user">
                 <div id="username">
                     <p>{{Auth::user()->username}}さん<img src="/storage/{{ Auth::user()->images }}"></p>
                 <div>

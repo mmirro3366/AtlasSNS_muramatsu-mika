@@ -13,7 +13,7 @@ class PostsController extends Controller
     //
     public function index(){
         //Postテーブルからレコード情報を取得
-        $list=Post::get();
+        $list=Post::latest()->get();
         //bladeへ返す際にデータを送る
         return view('posts.index',['list'=>$list]);
     }

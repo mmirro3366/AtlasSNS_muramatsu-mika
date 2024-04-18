@@ -8,18 +8,21 @@
     <input type="text" name="keyword" placeholder="ユーザー名">
     <input type="image" name="submit" src="images/search.png" width="30" height="30" alt="検索">
   </form>
+  <div class="search-word">
+    <!-- 検索ワード表示-->
+    @if (!empty($keyword))
+    <p>検索ワード：{{$keyword}}</p>
+    @endif
+  </div>
 </div>
 
-<!-- 検索ワード表示-->
-@if (!empty($keyword))
-<p>検索ワード：{{$keyword}}</p>
-@endif
 
 
 <!-- ユーザー一覧-->
 <div class="container-list">
   <table class='table table-hover'>
   @foreach($users as $user)
+  @if(Auth::id() != $user->id)
   <ul>
   <img src="{{asset('storage/'.$user->images)}}" width="40">
   <li>{{$user -> username}}</li>
@@ -36,6 +39,7 @@
     </form>
   @endif
   </ul>
+  @endif
   @endforeach
   </table>
 </div>

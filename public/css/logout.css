@@ -63,7 +63,7 @@ header p {
     margin: auto;
     border: none;
     border-radius: 0.5em;
-    width: 250px;
+    width: 245px;
     height: 30px;
 }
 
@@ -77,13 +77,14 @@ header p {
     margin: auto;
     border: none;
     border-radius: 0.5em;
-    width: 250px;
+    width: 245px;
     height: 30px;
 }
 
 .login-btn {
     padding: 10px 20px;
     text-align: right;
+    width: 250px;
 }
 
 .login-btn .btn {
@@ -138,7 +139,7 @@ header p {
     margin: auto;
     border: none;
     border-radius: 0.5em;
-    width: 250px;
+    width: 245px;
     height: 30px;
 }
 
@@ -152,7 +153,7 @@ header p {
     margin: auto;
     border: none;
     border-radius: 0.5em;
-    width: 250px;
+    width: 245px;
     height: 30px;
 }
 
@@ -166,7 +167,7 @@ header p {
     margin: auto;
     border: none;
     border-radius: 0.5em;
-    width: 250px;
+    width: 245px;
     height: 30px;
 }
 
@@ -180,13 +181,14 @@ header p {
     margin: auto;
     border: none;
     border-radius: 0.5em;
-    width: 250px;
+    width: 245px;
     height: 30px;
 }
 
 .register-btn {
     padding: 10px 20px;
     text-align: right;
+    width: 250px;
 }
 
 .register-btn .btn {

@@ -19,16 +19,16 @@ class UsersController extends Controller
         if($request->isMethod('post')){
             $request->validate([
             'username' => 'required|min:2|max:12',
-            'mail' => 'required|min:5|max:40|unique:users|email',
+            'mail' => 'min:5|max:40|unique:users,mail->ignore(Auth::id())',
             'password' => 'required|min:8|max:20|confirmed|string',
             'password_confirmation' => 'required|same:password',
             'bio' => 'max:150',
-            'images' => 'image',
+            'images' => 'sometimes|image',
             ],
             ['username.required' => 'ユーザーネームは必須項目です。',
             'username.min' => 'パスワードは2文字以上で入力してください。',
             'username.max' => 'パスワードは12文字以内で入力してください。',
-            'mail.required' => 'メールアドレスは必須項目です。',
+            // 'mail.required' => 'メールアドレスは必須項目です。',
             'mail.email' => 'メールアドレスを正しく入力してください。',
             'mail.min' => 'パスワードは5文字以上で入力してください。',
             'mail.max' => 'パスワードは40文字以下で入力してください。',
@@ -48,10 +48,13 @@ class UsersController extends Controller
             $password = $request->input('password');
             $password_confirmation = $request->input('password_confirmation');
             $bio = $request->input('bio');
-            $image = $request->file('images')->getClientOriginalName();
+
+            if(isset($request->images)){
+                $image = $request->file('images')->getClientOriginalName();
             //dd($image);
-            $request->file('images')->store('public/storage/' . $image);
-            //dd($username,$mail,$password,$password_confirmation,$bio,$id);
+                $request->file('images')->store('public/storage/' . $image);
+            }
+            //dd($username,$mail,$password,$password_econfirmation,$bio,$id);
             //↓これがないと全てのユーザー情報上書きされてしまう
           User::where('id', $id)->update([
               'username' => $username,
@@ -59,7 +62,7 @@ class UsersController extends Controller
               'password' => bcrypt($password),
               //'password_confirmation' => bcrypt($password_confirmation),
               'bio' => $bio,
-              'images' => $image,
+            //   'images' => $image,
           ]);
         }
           return redirect('/top');

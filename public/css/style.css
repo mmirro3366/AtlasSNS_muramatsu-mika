@@ -5,17 +5,29 @@ html {}
 body {}
 
 /* header */
-header {
+/* header {
     background: #186AC9;
+    height: 50px;
+} */
+
+#head {
+    background: #186AC9;
+    height: 70px;
+}
+
+#head h1 {
+    height: 30px;
 }
 
 #head img {
-    width: 15%;
+    width: 7%;
+    margin-left: 20px;
 }
 
-#user {
+.user {
     display: flex;
     position: relative;
+    height: 10px;
 
 }
 
@@ -23,6 +35,11 @@ header {
     display: flex;
     float: left;
     margin-left: auto;
+    color: #fff;
+}
+
+#username img {
+    width: 15%;
 }
 
 /* アコーディオンメニュー */
@@ -31,6 +48,7 @@ header {
     cursor: pointer;
     float: left;
     margin-left: auto;
+    height: 20px;
 }
 
 .accordion-content {
@@ -63,8 +81,10 @@ header {
 .menu-btn {
     display: flex;
     font-size: 1.25rem;
-    padding: 10px;
     padding-left: 10px;
+    padding-top: 0;
+    padding-bottom: 2px;
+    margin: 0;
     width: 100px;
     background-color: transparent;
     color: #fff;
@@ -320,6 +340,11 @@ header {
 
 .search-top input {
     vertical-align: middle;
+    border-radius: 5px;
+}
+
+.search-word {
+    padding-left: 100px;
 }
 
 .container-list ul {
