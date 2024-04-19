@@ -7,7 +7,7 @@
   {!! Form::open(['url'=>'/createpost'])!!}
   {{Form::token()}}
   <div class="form-group"><img src="{{asset('storage/'.Auth::user()->images)}}">
-    <textarea name="post" class="form-control" placeholder="投稿内容を入力してください"></textarea>
+    <textarea name="newPost" class="form-control" placeholder="投稿内容を入力してください"></textarea>
     <!-- {{Form::input('text','newPost',null,['class'=>'form-control','placeholder'=>'投稿内容を入力してください'])}} -->
   </div>
   <button type="submit" class="btn-send pull-right"><img src="images/post.png" all="送信"></button>

@@ -79,6 +79,7 @@ class RegisterController extends Controller
                 'username' => $username,
                 'mail' => $mail,
                 'password' => bcrypt($password),
+                'images'=>'icon1.png'
             ]);
 
             //session機能利用して、ユーザー名表示
