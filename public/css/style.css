@@ -1,8 +1,12 @@
 @charset "utf-8";
 
-html {}
+html {
+    height: 100%;
+}
 
-body {}
+body {
+    height: 100%;
+}
 
 /* header */
 /* header {
@@ -116,6 +120,7 @@ body {}
 
 /* side bar */
 #row {
+    height: 100%;
     display: flex;
     flex-flow: row wrap;
 }
@@ -124,7 +129,12 @@ body {}
     border-bottom: 1px solid #C0C0C0;
 }
 
+#container {
+    height: 100%;
+}
+
 #side-bar {
+    height: 100%;
     flex: 0 0 19%;
     border-left: 1px solid #727272;
 }
