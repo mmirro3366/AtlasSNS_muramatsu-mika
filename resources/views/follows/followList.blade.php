@@ -26,7 +26,7 @@
         <div>{{$post->created_at}}</div>
       </div>
       <div class="post-post">
-        <div>{{$post->post}}</div>
+        <div>{!! nl2br($post->post) !!}</div>
       </div>
     </div>
   </div>

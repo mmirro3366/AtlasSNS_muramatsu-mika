@@ -32,7 +32,7 @@
           <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}"></a></h1>
             <div class="user">
                 <div id="username">
-                    <p>{{Auth::user()->username}}さん<img src="/storage/{{ Auth::user()->images }}"></p>
+                    <p>{{Auth::user()->username}}さん<img src="{{asset('storage/'.Auth::user()->images)}}"></p>
                 <div>
                 <div class="accordion-container">
                     <p class="menu-btn">▼</p>
